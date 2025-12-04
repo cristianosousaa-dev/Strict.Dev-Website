@@ -1,0 +1,13 @@
+{
+  "name": "Strict.Dev",
+  "short_name": "Strict.Dev",
+  "description": "Professional Web & App Development. Expert solutions for modern businesses.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2C5F5D",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity"],
+  "lang": "en",
+  "dir": "ltr"
+}
