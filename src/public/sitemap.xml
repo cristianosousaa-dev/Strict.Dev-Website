@@ -1,32 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
-  <!-- Homepage -->
+  <!-- Homepage (English) -->
   <url>
-    <loc>https://strict.dev/</loc>
-    <lastmod>2025-11-30</lastmod>
+    <loc>https://strict-dev.com/</loc>
+    <lastmod>2024-12-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://strict-dev.com/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://strict-dev.com/?lang=pt" />
   </url>
   
-  <!-- Main Sections (accessible via anchors) -->
+  <!-- Portuguese Homepage -->
   <url>
-    <loc>https://strict.dev/#services</loc>
-    <lastmod>2025-11-30</lastmod>
+    <loc>https://strict-dev.com/?lang=pt</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://strict-dev.com/" />
+    <xhtml:link rel="alternate" hreflang="pt" href="https://strict-dev.com/?lang=pt" />
+  </url>
+  
+  <!-- Services Section -->
+  <url>
+    <loc>https://strict-dev.com/#services</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- About Section -->
+  <url>
+    <loc>https://strict-dev.com/#about</loc>
+    <lastmod>2024-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   
+  <!-- Skills Section -->
   <url>
-    <loc>https://strict.dev/#about</loc>
-    <lastmod>2025-11-30</lastmod>
+    <loc>https://strict-dev.com/#skills</loc>
+    <lastmod>2024-12-01</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>
   
+  <!-- Testimonials Section -->
   <url>
-    <loc>https://strict.dev/#contact</loc>
-    <lastmod>2025-11-30</lastmod>
+    <loc>https://strict-dev.com/#testimonials</loc>
+    <lastmod>2024-12-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Contact Section -->
+  <url>
+    <loc>https://strict-dev.com/#contact</loc>
+    <lastmod>2024-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

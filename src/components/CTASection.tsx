@@ -1,11 +1,10 @@
 import { motion } from 'motion/react';
-import { Sparkles, ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useIsMobile, useReducedMotion } from '../hooks/useMediaQuery';
 
 export default function CTASection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const isMobile = useIsMobile();
   const prefersReducedMotion = useReducedMotion();
   const enableComplexAnimations = !isMobile && !prefersReducedMotion;
@@ -135,22 +134,6 @@ export default function CTASection() {
 
               <div className="relative z-10 text-center space-y-4 sm:space-y-6">
                 
-                {/* Icon */}
-                <motion.div
-                  animate={enableComplexAnimations ? {
-                    rotate: [0, 10, -10, 0],
-                    scale: [1, 1.1, 1],
-                  } : {}}
-                  transition={enableComplexAnimations ? {
-                    duration: 3,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  } : {}}
-                  className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 mb-1 sm:mb-2"
-                >
-                  <Sparkles className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
-                </motion.div>
-
                 {/* Title */}
                 <h2 className="text-xl sm:text-3xl mb-2 sm:mb-4">
                   {t('cta.section.title')}
@@ -167,23 +150,81 @@ export default function CTASection() {
                   whileInView={{ opacity: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: isMobile ? 0 : 0.3, duration: isMobile ? 0.2 : 0.5 }}
+                  className="relative flex flex-col items-center gap-3"
                 >
-                  <Button
-                    size="lg"
+                  <motion.div
+                    initial={{ scale: 0.9 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.3 }}
                     onClick={scrollToContact}
-                    className={`group gap-2 rounded-full px-6 py-4 sm:px-8 sm:py-6 relative overflow-hidden ${!isMobile ? 'hover:scale-105 hover:-translate-y-1 animate-pulse-ring' : ''}`}
-                    style={{
-                      transition: isMobile ? 'none' : 'all 150ms ease-out',
-                      willChange: isMobile ? 'auto' : 'transform'
+                    className="inline-flex items-center gap-2 bg-gradient-to-r from-primary via-primary to-primary/80 text-primary-foreground px-6 py-3 rounded-full cursor-pointer group relative overflow-hidden hover:-translate-y-1"
+                    style={{ 
+                      transition: 'all 150ms ease-out',
+                      willChange: 'transform'
                     }}
                   >
+                    {/* Animated Background Shine */}
                     {enableComplexAnimations && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
+                      <motion.div
+                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                        animate={{
+                          x: ['-200%', '200%']
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          ease: "linear"
+                        }}
+                      />
                     )}
-                    <Sparkles className={`w-5 h-5 relative z-10 ${!isMobile ? 'group-hover:rotate-12 transition-transform duration-150' : ''}`} />
-                    <span className="relative z-10">{t('cta.section.button')}</span>
-                    <ArrowRight className={`w-5 h-5 relative z-10 ${!isMobile ? 'group-hover:translate-x-1 transition-transform duration-150' : ''}`} />
-                  </Button>
+                    
+                    <span className="font-bold text-sm relative z-10">
+                      {t('cta.section.button')}
+                    </span>
+                    
+                    {/* Pulse Ring */}
+                    {enableComplexAnimations && (
+                      <motion.div
+                        className="absolute inset-0 rounded-full border-2 border-primary-foreground/30"
+                        animate={{
+                          scale: [1, 1.1, 1],
+                          opacity: [0.5, 0, 0.5]
+                        }}
+                        transition={{
+                          duration: 2,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                    )}
+                  </motion.div>
+
+                  {/* Badge "Resposta em 24h" - ABAIXO do botão */}
+                  <motion.div
+                    initial={{ opacity: 0, y: 5 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: isMobile ? 0 : 0.5, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                    className="relative"
+                  >
+                    <div className="relative group">
+                      {/* Glow sutil atrás */}
+                      <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-150 opacity-60" />
+                      
+                      {/* Badge content */}
+                      <div className="relative px-4 py-1 rounded-full bg-gradient-to-r from-background/95 to-background/90 border border-primary/30 backdrop-blur-xl shadow-lg">
+                        <div className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                          <span className="text-[11px] tracking-wide uppercase text-foreground/90 font-medium whitespace-nowrap">
+                            {language === 'pt' ? 'Resposta em 24h' : '24h Response Time'}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
                 </motion.div>
               </div>
             </div>

@@ -45,6 +45,8 @@ export default function CookieBanner({ onOpenSettings }: CookieBannerProps) {
     pt: {
       title: 'Este site utiliza cookies',
       description: 'Utilizamos cookies para melhorar a sua experiência de navegação, analisar o tráfego do site e personalizar conteúdo.',
+      learnMore: 'Saiba mais na nossa',
+      privacyPolicy: 'Política de Privacidade',
       acceptAll: 'Aceitar Tudo',
       acceptNecessary: 'Apenas Necessários',
       customize: 'Personalizar'
@@ -52,6 +54,8 @@ export default function CookieBanner({ onOpenSettings }: CookieBannerProps) {
     en: {
       title: 'This site uses cookies',
       description: 'We use cookies to improve your browsing experience, analyze site traffic, and personalize content.',
+      learnMore: 'Learn more in our',
+      privacyPolicy: 'Privacy Policy',
       acceptAll: 'Accept All',
       acceptNecessary: 'Necessary Only',
       customize: 'Customize'

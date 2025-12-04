@@ -102,6 +102,22 @@ const Contact = memo(function Contact() {
 
       console.log('✅ Email enviado com sucesso via Web3Forms!');
       
+      // 🔥 GOOGLE ANALYTICS - Track Conversion
+      if (typeof window !== 'undefined' && (window as any).gtag) {
+        (window as any).gtag('event', 'form_submission', {
+          'event_category': 'Contact',
+          'event_label': 'Contact Form Submit - Strict.Dev',
+          'value': 1
+        });
+        
+        // Track as conversion
+        (window as any).gtag('event', 'conversion', {
+          'send_to': 'G-D6X8BXE242',
+          'event_category': 'Lead',
+          'event_label': 'New Contact Form Lead'
+        });
+      }
+      
       setIsSubmitting(false);
       setIsSubmitted(true);
       setShowBanner(true);

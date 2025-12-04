@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Globe, Smartphone, Zap, Palette, Code, Rocket, Star, TrendingUp, Award, Sparkles } from 'lucide-react';
+import { Globe, Smartphone, Zap, Palette, Code, Rocket, Star, TrendingUp, Award } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useIsMobile, useReducedMotion } from '../hooks/useMediaQuery';
 import { memo, useState } from 'react';
@@ -138,7 +138,7 @@ const Services = memo(function Services() {
       description: t('services.custom.description'),
       badge: {
         text: language === 'pt' ? 'Novo' : 'New',
-        icon: Sparkles,
+        icon: Star,
       }
     },
     {

@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from 'motion/react';
-import { ArrowRight, Sparkles, Star } from 'lucide-react';
+import { Star } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../contexts/LanguageContext';
 import { useIsMobile, useReducedMotion } from '../hooks/useMediaQuery';
@@ -321,7 +321,6 @@ const Hero = memo(function Hero() {
                     className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
                   />
                 )}
-                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 text-primary relative z-10" />
                 <span className="relative z-10 text-xs sm:text-sm">{t('hero.greeting')}</span>
               </div>
             </motion.div>
@@ -359,22 +358,75 @@ const Hero = memo(function Hero() {
               transition={{ duration: 0.2 }}
               className="flex flex-col sm:flex-row gap-2.5 sm:gap-4 justify-center items-stretch sm:items-center px-4 sm:px-0"
             >
-              <Button
-                size="lg"
-                onClick={scrollToContact}
-                className={`group gap-2 rounded-full px-6 py-4 sm:px-8 sm:py-6 relative overflow-hidden cursor-pointer w-full sm:w-auto ${!isMobile ? 'hover:scale-110 hover:-translate-y-2 animate-pulse-ring' : ''}`}
-                style={{
-                  transition: isMobile ? 'none' : 'all 150ms ease-out',
-                  willChange: isMobile ? 'auto' : 'transform'
-                }}
-              >
-                {enableComplexAnimations && (
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-                )}
-                <Sparkles className={`w-4 h-4 sm:w-5 sm:h-5 relative z-10 ${!isMobile ? 'group-hover:rotate-12 transition-transform duration-150' : ''}`} />
-                <span className="relative z-10 text-sm sm:text-base">{t('hero.cta.contact')}</span>
-                <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 relative z-10 ${!isMobile ? 'group-hover:translate-x-1 transition-transform duration-150' : ''}`} />
-              </Button>
+              <div className="relative w-full sm:w-auto flex flex-col items-center gap-3">
+                <motion.div
+                  initial={{ scale: 0.9 }}
+                  animate={{ scale: 1 }}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                  onClick={scrollToContact}
+                  className="inline-flex items-center gap-2 bg-gradient-to-r from-primary via-primary to-primary/80 text-primary-foreground px-6 py-3 rounded-full cursor-pointer group relative overflow-hidden w-full sm:w-auto justify-center hover:-translate-y-1"
+                  style={{ 
+                    transition: 'all 150ms ease-out',
+                    willChange: 'transform'
+                  }}
+                >
+                  {/* Animated Background Shine */}
+                  <motion.div
+                    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                    animate={{
+                      x: ['-200%', '200%']
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "linear"
+                    }}
+                  />
+                  
+                  <span className="font-bold text-sm relative z-10">
+                    {t('hero.cta.contact')}
+                  </span>
+                  
+                  {/* Pulse Ring */}
+                  <motion.div
+                    className="absolute inset-0 rounded-full border-2 border-primary-foreground/30"
+                    animate={{
+                      scale: [1, 1.1, 1],
+                      opacity: [0.5, 0, 0.5]
+                    }}
+                    transition={{
+                      duration: 2,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                  />
+                </motion.div>
+
+                {/* Badge "Resposta em 24h" - ABAIXO do botão */}
+                <motion.div
+                  initial={{ opacity: 0, y: 5 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                  className="relative"
+                >
+                  <div className="relative group">
+                    {/* Glow sutil atrás */}
+                    <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-150 opacity-60" />
+                    
+                    {/* Badge content */}
+                    <div className="relative px-4 py-1 rounded-full bg-gradient-to-r from-background/95 to-background/90 border border-primary/30 backdrop-blur-xl shadow-lg">
+                      <div className="flex items-center gap-2">
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                        <span className="text-[11px] tracking-wide uppercase text-foreground/90 font-medium whitespace-nowrap">
+                          {language === 'pt' ? 'Resposta em 24h' : '24h Response Time'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
 
             {/* Trust Indicators */}

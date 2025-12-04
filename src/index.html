@@ -3,16 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   
   <!-- Primary Meta Tags -->
-  <title>Strict.Dev, Complete Digital Solutions</title>
-  <meta name="title" content="Strict.Dev, Complete Digital Solutions">
+  <title>Strict.Dev - Professional Web & App Development</title>
+  <meta name="title" content="Strict.Dev - Professional Web & App Development">
   <meta name="description" content="Transform your digital presence with Strict.Dev. Expert web development, mobile apps, and performance optimization. Premium solutions for modern businesses.">
-  <meta name="keywords" content="web development, app development, mobile apps, performance optimization, React, TypeScript, professional development, digital agency, web design, responsive design">
+  <meta name="keywords" content="web development, app development, mobile apps, performance optimization, React development, TypeScript, Next.js, Node.js, full-stack development, frontend development, backend development, UI/UX design, responsive web design, progressive web apps, PWA, SPA development, API development, cloud deployment, digital transformation, business automation, custom software development, Portugal web development, professional development services, agile development, modern web technologies">
   <meta name="author" content="Strict.Dev">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="language" content="English">
   <meta name="revisit-after" content="7 days">
+  <meta name="rating" content="general">
+  <meta name="distribution" content="global">
+  <meta name="coverage" content="Worldwide">
+  
+  <!-- Google Site Verification (placeholder - add your code) -->
+  <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE"> -->
+  
+  <!-- Bing/Microsoft Clarity Verification (placeholder) -->
+  <!-- <meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE"> -->
   
   <!-- Canonical URL -->
   <link rel="canonical" href="https://strict-dev.com">
@@ -25,9 +37,10 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://strict-dev.com">
-  <meta property="og:title" content="Strict.Dev, Complete Digital Solutions">
+  <meta property="og:title" content="Strict.Dev - Professional Web & App Development">
   <meta property="og:description" content="Transform your digital presence with Strict.Dev. Expert web development, mobile apps, and performance optimization. Premium solutions for modern businesses.">
   <meta property="og:image" content="https://strict-dev.com/og-image.png">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Strict.Dev - Professional Web Development">
@@ -38,10 +51,10 @@
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="https://strict-dev.com">
-  <meta name="twitter:title" content="Strict.Dev, Complete Digital Solutions">
+  <meta name="twitter:title" content="Strict.Dev - Professional Web & App Development">
   <meta name="twitter:description" content="Transform your digital presence with Strict.Dev. Expert web development, mobile apps, and performance optimization. Premium solutions for modern businesses.">
   <meta name="twitter:image" content="https://strict-dev.com/og-image.png">
-  <meta name="twitter:image:alt" content="Strict.Dev - Complete Digital Solutions">
+  <meta name="twitter:image:alt" content="Strict.Dev - Professional Web & App Development">
   
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -81,7 +94,7 @@
     "name": "Strict.Dev",
     "url": "https://strict-dev.com",
     "logo": "https://strict-dev.com/logo.png",
-    "description": "Professional web and app development agency specializing in modern digital solutions",
+    "description": "Professional web and app development specializing in modern digital solutions",
     "foundingDate": "2024",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -170,10 +183,67 @@
   }
   </script>
   
+  <!-- Website Schema with SearchAction for Google Search Box -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Strict.Dev",
+    "url": "https://strict-dev.com",
+    "description": "Professional Web & App Development",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Strict.Dev"
+    },
+    "inLanguage": ["en", "pt"],
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://strict-dev.com/?s={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  
+  <!-- BreadcrumbList Schema for Navigation -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://strict-dev.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://strict-dev.com/#services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "About",
+        "item": "https://strict-dev.com/#about"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Contact",
+        "item": "https://strict-dev.com/#contact"
+      }
+    ]
+  }
+  </script>
+  
   <!-- Performance optimization - Preload Critical Resources -->
   <link rel="preload" as="image" href="/logo.png">
   <link rel="modulepreload" href="/src/main.tsx">
-  <link rel="preload" as="fetch" href="/manifest.json" crossorigin>
   
   <!-- Accessibility: Skip to main content -->
   <style>
@@ -201,16 +271,51 @@
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
   
-  <!-- TODO: Add Analytics (Google Analytics 4 or Plausible) -->
-  <!-- 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <!-- 🔥 Google Analytics 4 - ATIVO -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-D6X8BXE242"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'GA_MEASUREMENT_ID');
+
+    gtag('config', 'G-D6X8BXE242', {
+      'send_page_view': true,
+      'anonymize_ip': true,
+      'cookie_flags': 'SameSite=None;Secure'
+    });
+
+    // 📊 Custom Events Configuration
+    // Track scroll depth
+    let scrollDepth = 0;
+    window.addEventListener('scroll', function() {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = Math.round((winScroll / height) * 100);
+      
+      if (scrolled > scrollDepth) {
+        scrollDepth = scrolled;
+        if (scrolled === 25 || scrolled === 50 || scrolled === 75 || scrolled === 100) {
+          gtag('event', 'scroll_depth', {
+            'event_category': 'Engagement',
+            'event_label': scrolled + '%',
+            'value': scrolled
+          });
+        }
+      }
+    }, { passive: true });
+
+    // Track outbound links
+    document.addEventListener('click', function(e) {
+      const target = e.target.closest('a');
+      if (target && target.href && target.hostname !== window.location.hostname) {
+        gtag('event', 'click', {
+          'event_category': 'Outbound Link',
+          'event_label': target.href
+        });
+      }
+    });
   </script>
-  -->
   
   <!-- Noscript fallback -->
   <noscript>

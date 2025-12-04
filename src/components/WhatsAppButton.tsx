@@ -33,6 +33,16 @@ export default function WhatsAppButton() {
       e.stopPropagation();
     }
     const text = message || t('whatsapp.defaultMessage');
+    
+    // 🔥 GOOGLE ANALYTICS - Track WhatsApp Click
+    if (typeof window !== 'undefined' && (window as any).gtag) {
+      (window as any).gtag('event', 'whatsapp_click', {
+        'event_category': 'Contact',
+        'event_label': 'WhatsApp Button Click',
+        'value': 1
+      });
+    }
+    
     window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
     setIsOpen(false);
     setMessage('');

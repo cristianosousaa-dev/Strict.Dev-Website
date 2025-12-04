@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Sparkles, CheckCircle2, Clock, Shield } from 'lucide-react';
+import { X, CheckCircle2, Clock, Shield } from 'lucide-react';
 import { Button } from './ui/button';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function ExitIntentPopup() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
 
@@ -145,7 +145,7 @@ export default function ExitIntentPopup() {
                       }}
                       className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 mb-4"
                     >
-                      <Sparkles className="w-8 h-8 text-primary" />
+                      <CheckCircle2 className="w-8 h-8 text-primary" />
                     </motion.div>
                     
                     <motion.h2
@@ -207,21 +207,83 @@ export default function ExitIntentPopup() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.9 }}
-                    className="flex flex-col sm:flex-row gap-3 justify-center"
+                    className="flex flex-col sm:flex-row gap-3 justify-center relative items-center"
                   >
-                    <Button
-                      size="lg"
-                      onClick={scrollToContact}
-                      className="group gap-2 rounded-full px-8 relative overflow-hidden hover:scale-105 hover:-translate-y-1 animate-pulse-ring"
-                      style={{
-                        transition: 'all 150ms ease-out',
-                        willChange: 'transform'
-                      }}
-                    >
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-500" />
-                      <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-150 relative z-10" />
-                      <span className="relative z-10">{t('cta.exit.button')}</span>
-                    </Button>
+                    <div className="flex flex-col items-center gap-3">
+                      <motion.div
+                        initial={{ scale: 0.9 }}
+                        animate={{ 
+                          scale: 1,
+                          y: [0, -8, 0]
+                        }}
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={{
+                          scale: { duration: 0.3 },
+                          y: { 
+                            duration: 2.5, 
+                            repeat: Infinity, 
+                            ease: "easeInOut" 
+                          }
+                        }}
+                        onClick={scrollToContact}
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-primary via-primary to-primary/80 text-primary-foreground px-6 py-3 rounded-full transition-all duration-300 cursor-pointer group relative overflow-hidden"
+                      >
+                        {/* Animated Background Shine */}
+                        <motion.div
+                          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
+                          animate={{
+                            x: ['-200%', '200%']
+                          }}
+                          transition={{
+                            duration: 3,
+                            repeat: Infinity,
+                            ease: "linear"
+                          }}
+                        />
+                        
+                        <span className="font-bold text-sm relative z-10">
+                          {t('cta.exit.button')}
+                        </span>
+                        
+                        {/* Pulse Ring */}
+                        <motion.div
+                          className="absolute inset-0 rounded-full border-2 border-primary-foreground/30"
+                          animate={{
+                            scale: [1, 1.1, 1],
+                            opacity: [0.5, 0, 0.5]
+                          }}
+                          transition={{
+                            duration: 2,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                      </motion.div>
+
+                      {/* Badge "Resposta em 24h" - ABAIXO do botão */}
+                      <motion.div
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 1.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+                        className="relative"
+                      >
+                        <div className="relative group">
+                          {/* Glow sutil atrás */}
+                          <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full scale-150 opacity-60" />
+                          
+                          {/* Badge content */}
+                          <div className="relative px-4 py-1 rounded-full bg-gradient-to-r from-background/95 to-background/90 border border-primary/30 backdrop-blur-xl shadow-lg">
+                            <div className="flex items-center gap-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                              <span className="text-[11px] tracking-wide uppercase text-foreground/90 font-medium whitespace-nowrap">
+                                {language === 'pt' ? 'Resposta em 24h' : '24h Response Time'}
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </div>
                     
                     <Button
                       size="lg"

@@ -12,8 +12,8 @@ import { useIsMobile } from './hooks/useMediaQuery';
 
 // Lazy load dos componentes não críticos
 const Services = lazy(() => import('./components/Services'));
+const PortfolioPremium = lazy(() => import('./components/PortfolioPremium'));
 const About = lazy(() => import('./components/About'));
-const Testimonials = lazy(() => import('./components/Testimonials'));
 const Contact = lazy(() => import('./components/Contact'));
 const WhatsAppButton = lazy(() => import('./components/WhatsAppButton'));
 const ScrollToTop = lazy(() => import('./components/ScrollToTop'));
@@ -22,6 +22,8 @@ const CookieSettings = lazy(() => import('./components/CookieSettings'));
 const ExitIntentPopup = lazy(() => import('./components/ExitIntentPopup'));
 const CTASection = lazy(() => import('./components/CTASection'));
 const Skills = lazy(() => import('./components/Skills'));
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsConditions = lazy(() => import('./components/TermsConditions'));
 
 export type Theme = 'white' | 'lavender' | 'mint' | 'peach' | 'sky' | 'rose';
 export type Mode = 'light' | 'dark';
@@ -38,6 +40,8 @@ function AppContent() {
   const [mode, setMode] = useState<Mode>('light');
   const [isLoading, setIsLoading] = useState(true);
   const [showCookieSettings, setShowCookieSettings] = useState(false);
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const [showTermsConditions, setShowTermsConditions] = useState(false);
   const { t, language } = useLanguage();
   const isMobile = useIsMobile();
 
@@ -92,14 +96,14 @@ function AppContent() {
   // SEO content based on language
   const seoContent = {
     en: {
-      title: 'Strict.Dev - Professional Web & App Development Agency',
+      title: 'Strict.Dev - Professional Web & App Development',
       description: 'Transform your digital presence with Strict.Dev. Expert web development, mobile apps, and performance optimization. Premium solutions for modern businesses.',
-      keywords: 'web development, app development, mobile apps, performance optimization, React, TypeScript, professional development, digital agency, web design, responsive design'
+      keywords: 'web development, app development, mobile apps, performance optimization, React, TypeScript, professional development, web design, responsive design, custom solutions'
     },
     pt: {
-      title: 'Strict.Dev - Agência Profissional de Desenvolvimento Web & Apps',
+      title: 'Strict.Dev - Desenvolvimento Profissional Web & Apps',
       description: 'Transforme a sua presença digital com a Strict.Dev. Desenvolvimento web especializado, aplicações móveis e otimização de performance. Soluções premium para negócios modernos.',
-      keywords: 'desenvolvimento web, desenvolvimento de apps, aplicações móveis, otimização de performance, React, TypeScript, desenvolvimento profissional, agência digital, web design, design responsivo'
+      keywords: 'desenvolvimento web, desenvolvimento de apps, aplicações móveis, otimização de performance, React, TypeScript, desenvolvimento profissional, web design, design responsivo, soluções personalizadas'
     }
   };
 
@@ -152,6 +156,11 @@ function AppContent() {
             <Skills />
           </Suspense>
           
+          {/* Portfolio Section */}
+          <Suspense fallback={<SectionFallback />}>
+            <PortfolioPremium />
+          </Suspense>
+          
           {/* CTA Section estratégico */}
           <Suspense fallback={<SectionFallback />}>
             <CTASection />
@@ -159,9 +168,6 @@ function AppContent() {
           
           <Suspense fallback={<SectionFallback />}>
             <About />
-          </Suspense>
-          <Suspense fallback={<SectionFallback />}>
-            <Testimonials />
           </Suspense>
           <Suspense fallback={<SectionFallback />}>
             <Contact />
@@ -172,16 +178,38 @@ function AppContent() {
           isMobile ? 'bg-background/95' : 'bg-background/70 backdrop-blur-xl'
         }`}>
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col items-center justify-center gap-1.5 sm:gap-3 text-sm text-center">
+            <div className="flex flex-col items-center justify-center gap-3 sm:gap-4 text-sm text-center">
               <p className="opacity-60 text-xs sm:text-sm">
                 © {new Date().getFullYear()} Strict.Dev. {t('footer.rights') || 'Todos os direitos reservados.'}
               </p>
-              <button
-                onClick={() => setShowCookieSettings(true)}
-                className="text-primary hover:text-primary/80 transition-colors cursor-pointer underline underline-offset-4 text-xs sm:text-sm"
-              >
-                {language === 'pt' ? 'Gerir Cookies' : 'Manage Cookies'}
-              </button>
+              
+              {/* Links RGPD */}
+              <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+                <button
+                  onClick={() => setShowPrivacyPolicy(true)}
+                  className="text-primary hover:text-primary/80 transition-colors cursor-pointer underline underline-offset-4 text-xs sm:text-sm"
+                >
+                  {language === 'pt' ? 'Política de Privacidade' : 'Privacy Policy'}
+                </button>
+                
+                <span className="text-muted-foreground opacity-50">•</span>
+                
+                <button
+                  onClick={() => setShowTermsConditions(true)}
+                  className="text-primary hover:text-primary/80 transition-colors cursor-pointer underline underline-offset-4 text-xs sm:text-sm"
+                >
+                  {language === 'pt' ? 'Termos e Condições' : 'Terms & Conditions'}
+                </button>
+                
+                <span className="text-muted-foreground opacity-50">•</span>
+                
+                <button
+                  onClick={() => setShowCookieSettings(true)}
+                  className="text-primary hover:text-primary/80 transition-colors cursor-pointer underline underline-offset-4 text-xs sm:text-sm"
+                >
+                  {language === 'pt' ? 'Gerir Cookies' : 'Manage Cookies'}
+                </button>
+              </div>
             </div>
           </div>
         </footer>
@@ -192,6 +220,14 @@ function AppContent() {
         </Suspense>
         <Suspense fallback={null}>
           <CookieSettings isOpen={showCookieSettings} onClose={() => setShowCookieSettings(false)} />
+        </Suspense>
+        
+        {/* RGPD Modals */}
+        <Suspense fallback={null}>
+          <PrivacyPolicy isOpen={showPrivacyPolicy} onClose={() => setShowPrivacyPolicy(false)} />
+        </Suspense>
+        <Suspense fallback={null}>
+          <TermsConditions isOpen={showTermsConditions} onClose={() => setShowTermsConditions(false)} />
         </Suspense>
       </motion.div>
     </>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate OG Image - Strict.Dev</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: #1a1a1a;
+            color: white;
+        }
+        #canvas {
+            border: 2px solid #2C5F5D;
+            max-width: 100%;
+        }
+        .controls {
+            margin: 20px 0;
+        }
+        button {
+            background: #2C5F5D;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #3d7a77;
+        }
+        .instructions {
+            background: #2a2a2a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .instructions h2 {
+            color: #2C5F5D;
+            margin-top: 0;
+        }
+        .instructions ol {
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎨 Gerador de OG Image - Strict.Dev</h1>
+    
+    <div class="controls">
+        <button onclick="generateImage()">Gerar Imagem OG</button>
+        <button onclick="downloadImage()">Download PNG (1200x630)</button>
+    </div>
+    
+    <canvas id="canvas" width="1200" height="630"></canvas>
+    
+    <div class="instructions">
+        <h2>📋 Instruções:</h2>
+        <ol>
+            <li>Clica em "Gerar Imagem OG" para criar a imagem</li>
+            <li>Clica em "Download PNG" para descarregar</li>
+            <li>Renomeia para <strong>og-image.png</strong></li>
+            <li>Faz upload para <strong>/public/og-image.png</strong> no GitHub</li>
+            <li>Commit e aguarda deploy</li>
+        </ol>
+        <p><strong>Nota:</strong> Esta é uma imagem temporária. Depois podes criar uma melhor no Figma/Canva.</p>
+    </div>
+
+    <script>
+        function generateImage() {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, 1200, 630);
+            gradient.addColorStop(0, '#1a1a1a');
+            gradient.addColorStop(1, '#2C5F5D');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 1200, 630);
+            
+            // Decorative shapes
+            ctx.fillStyle = 'rgba(44, 95, 93, 0.3)';
+            ctx.beginPath();
+            ctx.arc(1000, 100, 200, 0, Math.PI * 2);
+            ctx.fill();
+            
+            ctx.fillStyle = 'rgba(44, 95, 93, 0.2)';
+            ctx.beginPath();
+            ctx.arc(200, 500, 150, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Logo text (since we don't have the actual logo)
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 80px system-ui, -apple-system, sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Strict.Dev', 600, 250);
+            
+            // Main title
+            ctx.font = 'bold 48px system-ui, -apple-system, sans-serif';
+            ctx.fillStyle = '#B4E4A8';
+            ctx.fillText('Professional Web & App Development', 600, 340);
+            
+            // Subtitle
+            ctx.font = '32px system-ui, -apple-system, sans-serif';
+            ctx.fillStyle = '#cccccc';
+            ctx.fillText('Transform Your Digital Presence', 600, 400);
+            
+            // Tech stack icons (text-based)
+            ctx.font = '24px system-ui, -apple-system, sans-serif';
+            ctx.fillStyle = '#2C5F5D';
+            const techs = ['React', 'TypeScript', 'Node.js', 'Performance'];
+            const startX = 300;
+            const spacing = 200;
+            techs.forEach((tech, i) => {
+                ctx.fillStyle = '#ffffff';
+                ctx.fillText('⚡', startX + (i * spacing), 500);
+                ctx.fillStyle = '#B4E4A8';
+                ctx.fillText(tech, startX + (i * spacing), 540);
+            });
+            
+            // Border
+            ctx.strokeStyle = '#2C5F5D';
+            ctx.lineWidth = 4;
+            ctx.strokeRect(2, 2, 1196, 626);
+        }
+        
+        function downloadImage() {
+            const canvas = document.getElementById('canvas');
+            const link = document.createElement('a');
+            link.download = 'og-image.png';
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        }
+        
+        // Generate on load
+        window.onload = generateImage;
+    </script>
+</body>
+</html>

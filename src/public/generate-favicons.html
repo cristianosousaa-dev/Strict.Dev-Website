@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎨 Gerador de Favicons - Strict.Dev</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 800px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    
+    h1 {
+      color: #2C5F5D;
+      margin-bottom: 10px;
+      font-size: 32px;
+    }
+    
+    .subtitle {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+    
+    .step {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border-left: 4px solid #2C5F5D;
+    }
+    
+    .step h2 {
+      color: #2C5F5D;
+      margin-bottom: 15px;
+      font-size: 20px;
+    }
+    
+    .step-content {
+      color: #444;
+      line-height: 1.8;
+    }
+    
+    .important {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+      border: 1px solid #ffc107;
+    }
+    
+    .success {
+      background: #d4edda;
+      border-left-color: #28a745;
+      border: 1px solid #28a745;
+    }
+    
+    code {
+      background: #e9ecef;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Courier New', monospace;
+      font-size: 14px;
+      color: #c7254e;
+    }
+    
+    a {
+      color: #2C5F5D;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    .button {
+      display: inline-block;
+      background: linear-gradient(135deg, #2C5F5D, #4A7C7A);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: transform 0.2s;
+    }
+    
+    .button:hover {
+      transform: translateY(-2px);
+      text-decoration: none;
+      box-shadow: 0 10px 20px rgba(44,95,93,0.3);
+    }
+    
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+    
+    li {
+      margin-bottom: 8px;
+    }
+    
+    .preview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .preview-item {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      border: 2px solid #e9ecef;
+    }
+    
+    .preview-item img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 10px;
+    }
+    
+    .preview-item p {
+      font-size: 12px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎨 Gerador de Favicons - Strict.Dev</h1>
+    <p class="subtitle">Cria todos os favicons necessários em 5 minutos!</p>
+    
+    <!-- MÉTODO 1: AUTOMÁTICO (RECOMENDADO) -->
+    <div class="step success">
+      <h2>✅ MÉTODO 1: AUTOMÁTICO (Recomendado - 2 min)</h2>
+      <div class="step-content">
+        <p><strong>Usa o RealFaviconGenerator - gera TUDO automaticamente!</strong></p>
+        <ol>
+          <li>Vai a: <a href="https://realfavicongenerator.net/" target="_blank" class="button">RealFaviconGenerator.net</a></li>
+          <li>Faz upload do <code>/public/logo.png</code></li>
+          <li>Configura:
+            <ul>
+              <li><strong>iOS Safari:</strong> Usa o logo sem alterações</li>
+              <li><strong>Android Chrome:</strong> Background color: <code>#2C5F5D</code></li>
+              <li><strong>Windows Metro:</strong> Background color: <code>#2C5F5D</code></li>
+            </ul>
+          </li>
+          <li>Clica em <strong>"Generate your Favicons"</strong></li>
+          <li>Download do ZIP</li>
+          <li>Extrai TODOS os ficheiros para <code>/public</code></li>
+          <li>DONE! ✅</li>
+        </ol>
+      </div>
+    </div>
+    
+    <!-- MÉTODO 2: ONLINE SIMPLES -->
+    <div class="step">
+      <h2>🌐 MÉTODO 2: Online Simples (3 min)</h2>
+      <div class="step-content">
+        <p><strong>Usa o Favicon.io - mais simples mas menos completo</strong></p>
+        <ol>
+          <li>Vai a: <a href="https://favicon.io/favicon-converter/" target="_blank" class="button">Favicon.io</a></li>
+          <li>Upload do <code>/public/logo.png</code></li>
+          <li>Download do ZIP</li>
+          <li>Copia os ficheiros para <code>/public</code></li>
+          <li>Renomeia se necessário</li>
+        </ol>
+      </div>
+    </div>
+    
+    <!-- MÉTODO 3: CANVA (DESIGN PERSONALIZADO) -->
+    <div class="step">
+      <h2>🎨 MÉTODO 3: Canva (Design Personalizado - 5 min)</h2>
+      <div class="step-content">
+        <p><strong>Cria favicons personalizados com Canva</strong></p>
+        <ol>
+          <li>Vai a: <a href="https://www.canva.com/create/favicons/" target="_blank" class="button">Canva Favicon</a></li>
+          <li>Usa template ou faz upload do logo</li>
+          <li>Exporta em vários tamanhos:
+            <ul>
+              <li>16x16 (favicon.ico)</li>
+              <li>32x32</li>
+              <li>96x96 (favicon-96x96.png)</li>
+              <li>180x180 (apple-touch-icon.png)</li>
+              <li>192x192 (web-app-manifest-192x192.png)</li>
+              <li>512x512 (web-app-manifest-512x512.png)</li>
+            </ul>
+          </li>
+          <li>Copia para <code>/public</code></li>
+        </ol>
+      </div>
+    </div>
+    
+    <!-- FICHEIROS NECESSÁRIOS -->
+    <div class="step important">
+      <h2>📋 Ficheiros que PRECISAS criar:</h2>
+      <div class="step-content">
+        <ul>
+          <li><code>favicon.ico</code> - 16x16 ou 32x32</li>
+          <li><code>favicon.svg</code> - Versão SVG (opcional mas recomendado)</li>
+          <li><code>favicon-96x96.png</code> - 96x96</li>
+          <li><code>apple-touch-icon.png</code> - 180x180</li>
+          <li><code>web-app-manifest-192x192.png</code> - 192x192</li>
+          <li><code>web-app-manifest-512x512.png</code> - 512x512</li>
+        </ul>
+        <p style="margin-top: 15px;"><strong>Coloca TODOS em:</strong> <code>/public</code></p>
+      </div>
+    </div>
+    
+    <!-- DEPOIS DE CRIAR -->
+    <div class="step success">
+      <h2>🚀 Depois de criar os favicons:</h2>
+      <div class="step-content">
+        <ol>
+          <li>Coloca todos em <code>/public</code></li>
+          <li>Git add + commit + push</li>
+          <li>Cloudflare Pages vai fazer redeploy automático</li>
+          <li>Limpa cache do browser (Ctrl+Shift+R)</li>
+          <li>Verifica em: <code>https://strict-dev.com/favicon.ico</code></li>
+          <li>Pede reindexação no Google Search Console:
+            <ul>
+              <li>Vai a <a href="https://search.google.com/search-console" target="_blank">Google Search Console</a></li>
+              <li>URL inspection → <code>https://strict-dev.com</code></li>
+              <li>Clica "Request Indexing"</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </div>
+    
+    <!-- GOOGLE -->
+    <div class="step important">
+      <h2>⏱️ Quanto tempo até aparecer no Google?</h2>
+      <div class="step-content">
+        <ul>
+          <li><strong>Mínimo:</strong> 24-48 horas</li>
+          <li><strong>Normal:</strong> 1-2 semanas</li>
+          <li><strong>Máximo:</strong> 30 dias</li>
+        </ul>
+        <p style="margin-top: 15px;">
+          <strong>⚡ Para acelerar:</strong><br>
+          1. Request indexing no Google Search Console<br>
+          2. Certifica que <code>robots.txt</code> permite crawling<br>
+          3. Verifica que o favicon existe em <code>https://strict-dev.com/favicon.ico</code><br>
+          4. Adiciona o favicon ao <code>sitemap.xml</code> (opcional)
+        </p>
+      </div>
+    </div>
+    
+    <!-- VERIFICAR -->
+    <div class="step">
+      <h2>🔍 Como verificar se está tudo OK:</h2>
+      <div class="step-content">
+        <ol>
+          <li>Abre: <code>https://strict-dev.com/favicon.ico</code> → Deve mostrar o icon</li>
+          <li>Abre: <code>https://strict-dev.com/apple-touch-icon.png</code> → Deve mostrar</li>
+          <li>Abre o site e vê se o favicon aparece no tab do browser</li>
+          <li>Usa: <a href="https://realfavicongenerator.net/favicon_checker" target="_blank">Favicon Checker</a></li>
+          <li>Verifica no móvel (Android + iOS)</li>
+        </ol>
+      </div>
+    </div>
+    
+    <!-- DICA PRO -->
+    <div class="step success">
+      <h2>💡 DICA PRO - SVG Favicon:</h2>
+      <div class="step-content">
+        <p>Se tens o logo em SVG, cria <code>favicon.svg</code> com:</p>
+        <code style="display: block; padding: 15px; margin-top: 10px; white-space: pre-wrap; background: #2d2d2d; color: #f8f8f2; border-radius: 8px;">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Cola aqui o conteúdo do teu logo.svg -->
+</svg></code>
+        <p style="margin-top: 15px;">
+          <strong>Vantagem:</strong> Escalável, moderno, browsers suportam!
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
