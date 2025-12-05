@@ -120,7 +120,7 @@ export default function Header({ mode, setMode, theme, setTheme }: HeaderProps) 
             {isMobile ? (
               <div className="relative rounded-2xl w-12 h-12">
                 <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-background/90 via-background/85 to-background/90 border border-primary/15" />
-                <div className="relative z-10 p-2 w-full h-full">
+                <div className="relative z-10 p-0.5 w-full h-full">
                   <img 
                     src={logoImage} 
                     alt="Strict.Dev Logo" 
@@ -196,7 +196,7 @@ export default function Header({ mode, setMode, theme, setTheme }: HeaderProps) 
                 
                 {/* Logo Image with Micro Animation */}
                 <motion.div 
-                  className="relative z-10 p-2 w-full h-full"
+                  className="relative z-10 p-0.5 w-full h-full"
                   whileHover={{
                     rotate: [0, -2, 2, 0],
                     transition: { duration: 0.5, ease: 'easeInOut' }
@@ -426,7 +426,7 @@ export default function Header({ mode, setMode, theme, setTheme }: HeaderProps) 
                 <div className="p-4 flex justify-center mt-5">
                   <div className="relative rounded-2xl w-24 h-24">
                     <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-background/90 via-background/85 to-background/90 border border-primary/15" />
-                    <div className="relative z-10 p-3 w-full h-full">
+                    <div className="relative z-10 p-1 w-full h-full">
                       <img 
                         src={logoImage} 
                         alt="Strict.Dev Logo" 
