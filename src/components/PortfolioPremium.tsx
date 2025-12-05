@@ -13,8 +13,8 @@ import screenshotContact from 'figma:asset/bc1d57521e143cbf1d1b77b0ca69aad09e247
 import screenshotServices from 'figma:asset/c27488a4f9aeba35e836676e49d48218e8e98369.png';
 
 // Import dos projetos "Coming Soon"
-import arteRealImg from 'figma:asset/57e2949afa5950ee96910a85e430a48a98619dc5.png';
-import strictHealthImg from 'figma:asset/1280a79352882357f7826b7696ec74d675d348d3.png';
+import arteRealImg from 'figma:asset/1280a79352882357f7826b7696ec74d675d348d3.png';
+import strictHealthImg from 'figma:asset/57e2949afa5950ee96910a85e430a48a98619dc5.png';
 import mundicoresImg from 'figma:asset/a216b87e074701e2da5b13f047da84a3129a5eb8.png';
 
 interface ProjectImage {
